@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import img1 from "../assets/Ecommercereact.jpg";
 import img2 from "../assets/True-Blog.jpg";
 import img3 from "../assets/product-designer-web-template-portfolio-landing-page-design_138828-309.avif";
-import img4 from "../assets/OIP.jpg";
+import imgEmpMonitor from "../assets/image.png";
+import imgSecureRdp from "../assets/photo_2026-01-15_12-11-06.png";
 import img5 from "../assets/maxresdefault.jpg";
 
 const projects = [
@@ -12,7 +13,7 @@ const projects = [
       "Enterprise desktop application for employee activity monitoring, endpoint DLP and compliance reporting. Covers email, clipboard, USB, file-upload, website and application channels.",
     techStack: ["C++", "Qt Widgets", "Qt Network", "TCP/IP", "SQLite"],
     type: "professional",
-    image: img4,
+    image: imgEmpMonitor,
   },
   {
     title: "Secure RDP Controller",
@@ -20,7 +21,7 @@ const projects = [
       "Remote desktop solution built on a C++/Qt Host-Agent architecture with secure tunneled sessions, session safeguards, screen-capture protection and two-way clipboard/file transfer.",
     techStack: ["C++", "Qt Widgets", "REST APIs", "JSON", "RDP"],
     type: "professional",
-    image: img3,
+    image: imgSecureRdp,
   },
   {
     title: "AI-Powered Image Generation Tool",
