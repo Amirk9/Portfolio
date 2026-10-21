@@ -6,32 +6,33 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative  bg-black text-white px-6 md:px-20 pt-24 pb-10 flex flex-col md:flex-row justify-between items-center overflow-hidden"
+      className="relative min-h-screen px-4 md:px-10 pt-32 pb-16 flex items-center"
       aria-label="Introduction section with profile and call to action"
     >
-      {/* 📸 Background image for small screens */}
-      <div className="absolute inset-0 md:hidden z-0">
-        <img
-          src={profilePic}
-          alt="Background portrait"
-          className="w-full h-full object-cover opacity-20"
-        />
-      </div>
+      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+        {/* Left content */}
+        <div className="space-y-6">
+          <div className="neu-inset-sm inline-flex items-center gap-2 rounded-full px-4 py-2">
+            <span className="h-2 w-2 rounded-full bg-accent" />
+            <span className="text-xs font-semibold tracking-widest uppercase text-ink-soft">
+              Available for opportunities
+            </span>
+          </div>
 
-      {/* 🧾 Left Content */}
-      <div className="md:w-1/2 space-y-4 relative z-10">
-        <h1 className="text-yellow-500 text-xl tracking-widest uppercase font-semibold">
-          Hello!
-        </h1>
-        <h2 className="text-5xl md:text-6xl font-extrabold">
-          I'm <span className="text-yellow-500">Mohammad Amir</span> <br />
-          <span className="text-yellow-500">Khan</span>
-        </h2>
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-ink">
+            Hi, I'm{" "}
+            <span className="text-accent-deep">Mohammad Amir</span>{" "}
+            <span className="text-accent-deep">Khan</span>
+          </h1>
 
-        <p className="text-xl font-bold mt-2">
-          <span>
+          <p className="text-xl md:text-2xl font-bold text-ink-soft">
             <Typewriter
-              words={["build web apps.", "design UIs.", "solve problems."]}
+              words={[
+                "build desktop apps.",
+                "design systems.",
+                "write clean C++.",
+                "solve problems.",
+              ]}
               loop
               cursor
               cursorStyle="|"
@@ -39,49 +40,59 @@ const Hero = () => {
               deleteSpeed={50}
               delaySpeed={1500}
             />
-          </span>
-        </p>
-        <p className="text-lg">A Software Developer</p>
-        <p className="text-lg text-gray-400 max-w-xl">
-          I am Mohammad Amir Khan, a passionate Computer Science and
-          Engineering student with a flair for building web applications and
-          designing user interfaces. I enjoy solving complex problems and
-          turning ideas into reality through clean, efficient code.
-        </p>
+          </p>
 
-        <div className="flex flex-wrap gap-4 mt-4">
-          <a
-            href="/cv.pdf"
-            download
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Download my CV"
-            className="bg-yellow-500 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 transition"
-          >
-            Download CV
-          </a>
+          <p className="text-lg text-ink-soft max-w-xl">
+            <strong className="text-ink">Software Engineer · C++ / Qt Developer.</strong>{" "}
+            Over 1 year of experience shipping enterprise desktop products and
+            system components across Windows, Linux and macOS — from employee
+            monitoring and DLP to secure remote desktop control.
+          </p>
 
-          <Link
-            to="projects"
-            smooth={true}
-            duration={500}
-            className="cursor-pointer border border-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition duration-300 inline-block font-semibold text-center"
-            aria-label="Scroll to my works section"
-          >
-            My Works
-          </Link>
+          <div className="flex flex-wrap gap-4 pt-2">
+            <a
+              href="/Mohammad_Amir_Khan_Resume.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download my resume"
+              className="neu-accent text-ink px-7 py-3 rounded-2xl font-semibold transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              Download Resume
+            </a>
+
+            <Link
+              to="projects"
+              smooth={true}
+              duration={500}
+              className="neu-btn cursor-pointer px-7 py-3 rounded-2xl font-semibold text-ink inline-block text-center"
+              aria-label="Scroll to my work section"
+            >
+              My Work
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap gap-3 pt-4">
+            {["C++", "Qt / QML", "TCP/IP", "REST", "WinAPI"].map((tag) => (
+              <span key={tag} className="neu-chip px-4 py-1.5 rounded-xl text-sm text-ink-soft font-medium">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* 🖼️ Right-side image (hidden on mobile) */}
-      <div className="mt-10 md:mt-0 md:w-1/2 flex justify-center hidden md:flex z-10">
-        <img
-          src={profilePic}
-          alt="Portrait of Mohammad Amir Khan"
-          className="w-full max-w-sm object-cover rounded-lg shadow-lg"
-          loading="lazy"
-          decoding="async"
-        />
+        {/* Right: profile in a neumorphic frame */}
+        <div className="flex justify-center">
+          <div className="neu-avatar p-4 sm:p-6 rounded-full">
+            <img
+              src={profilePic}
+              alt="Portrait of Mohammad Amir Khan"
+              className="w-56 h-56 sm:w-72 sm:h-72 object-cover rounded-full"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

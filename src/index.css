@@ -1,9 +1,188 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-body {
-  font-family: 'Inter', sans-serif;
+  /* Neumorphic surface */
+  --color-neu-base: #e0e5ec;
+  --color-neu-light: #ffffff;
+  --color-neu-dark: #a3b1c6;
+  --color-neu-dark-soft: #cbd5e1;
+
+  /* Accent (amber keeps the original brand) */
+  --color-accent: #f59e0b;
+  --color-accent-deep: #b45309;
+  --color-accent-soft: #fcd34d;
+
+  /* Ink */
+  --color-ink: #1e293b;
+  --color-ink-soft: #475569;
+  --color-ink-faint: #64748b;
+
+  --spacing-6: 1.5rem;
+  --spacing-20: 5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-neu-base);
+    color: var(--color-ink);
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #1e293b;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Neumorphic primitives
+   ------------------------------------------------------------------ */
+@layer components {
+  .neu {
+    background-color: var(--color-neu-base);
+    box-shadow:
+      9px 9px 18px var(--color-neu-dark),
+      -9px -9px 18px var(--color-neu-light);
+  }
+
+  .neu-sm {
+    background-color: var(--color-neu-base);
+    box-shadow:
+      5px 5px 10px var(--color-neu-dark),
+      -5px -5px 10px var(--color-neu-light);
+  }
+
+  .neu-xs {
+    background-color: var(--color-neu-base);
+    box-shadow:
+      3px 3px 6px var(--color-neu-dark),
+      -3px -3px 6px var(--color-neu-light);
+  }
+
+  .neu-inset {
+    background-color: var(--color-neu-base);
+    box-shadow:
+      inset 5px 5px 10px var(--color-neu-dark),
+      inset -5px -5px 10px var(--color-neu-light);
+  }
+
+  .neu-inset-sm {
+    background-color: var(--color-neu-base);
+    box-shadow:
+      inset 3px 3px 6px var(--color-neu-dark),
+      inset -3px -3px 6px var(--color-neu-light);
+  }
+
+  .neu-accent {
+    background-color: var(--color-accent);
+    box-shadow:
+      6px 6px 14px var(--color-neu-dark),
+      -6px -6px 14px var(--color-neu-light);
+  }
+
+  .neu-accent-inset {
+    background-color: var(--color-accent);
+    box-shadow:
+      inset 4px 4px 9px var(--color-accent-deep),
+      inset -4px -4px 9px var(--color-accent-soft);
+  }
+
+  /* Interactive: press the element "into" the surface */
+  .neu-press {
+    transition:
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .neu-press:hover {
+    transform: translateY(-2px);
+  }
+
+  .neu-press:active,
+  .neu-press.is-active {
+    transform: translateY(0);
+    box-shadow:
+      inset 4px 4px 9px var(--color-neu-dark),
+      inset -4px -4px 9px var(--color-neu-light);
+  }
+
+  .neu-btn {
+    background-color: var(--color-neu-base);
+    box-shadow:
+      5px 5px 10px var(--color-neu-dark),
+      -5px -5px 10px var(--color-neu-light);
+    transition:
+      box-shadow 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .neu-btn:hover {
+    color: var(--color-accent-deep);
+    transform: translateY(-2px);
+  }
+
+  .neu-btn:active {
+    transform: translateY(0);
+    box-shadow:
+      inset 4px 4px 9px var(--color-neu-dark),
+      inset -4px -4px 9px var(--color-neu-light);
+  }
+
+  .neu-input {
+    background-color: var(--color-neu-base);
+    box-shadow:
+      inset 4px 4px 9px var(--color-neu-dark),
+      inset -4px -4px 9px var(--color-neu-light);
+    transition:
+      box-shadow 0.2s ease;
+  }
+
+  .neu-input:focus {
+    outline: none;
+    box-shadow:
+      inset 4px 4px 9px var(--color-neu-dark),
+      inset -4px -4px 9px var(--color-neu-light),
+      0 0 0 2px var(--color-accent);
+  }
+
+  .neu-chip {
+    background-color: var(--color-neu-base);
+    box-shadow:
+      3px 3px 6px var(--color-neu-dark),
+      -3px -3px 6px var(--color-neu-light);
+  }
+
+  .neu-avatar {
+    background-color: var(--color-neu-base);
+    box-shadow:
+      12px 12px 24px var(--color-neu-dark),
+      -12px -12px 24px var(--color-neu-light);
+  }
+
+  /* Big soft watermark text behind section headings */
+  .neu-watermark {
+    color: var(--color-neu-dark-soft);
+    opacity: 0.45;
+    user-select: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

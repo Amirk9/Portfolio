@@ -1,22 +1,26 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Education from './components/Education';
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Experience from "./components/Experience";
+import Education from "./components/Education";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="bg-[#0f172a] text-white scroll-smooth">
+    <div className="min-h-screen">
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-       <Education />
-      <Projects />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Education />
+        <Projects />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

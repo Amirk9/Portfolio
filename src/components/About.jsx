@@ -1,100 +1,154 @@
-import React from "react";
 import { motion } from "framer-motion";
 import profileImage from "../assets/1.jpg";
 
 const About = () => {
-  const FaHandPointLeft = () => {
-    window.open("https://www.linkedin.com/in/mohammad-amir-khan", "_blank");
-    
-  };
   const skills = [
-    { name: "Java", level: 85 },
-    { name: "JavaScript", level: 75 },
-    { name: "SQL", level: 90 },
-    { name: "HTML5/CSS3", level: 90 },
-    { name: "ReactJS", level: 80 },
-    { name: "ExpressJS", level: 70 },
-    { name: "NodeJS", level: 70 },
-    { name: "Tailwind CSS", level: 80 },
-    { name: "MongoBD", level: 80 },
-    
+    { name: "C++ (11/14/17/20)", level: 90 },
+    { name: "Qt / QML", level: 88 },
+    { name: "TCP/IP & Sockets", level: 85 },
+    { name: "REST APIs & JSON", level: 85 },
+    { name: "JavaScript & React", level: 75 },
+    { name: "SQL & SQLite", level: 80 },
+    { name: "Java & Python", level: 72 },
+    { name: "WinAPI / Multithreading", level: 82 },
   ];
 
   return (
-    <section id="about" className="bg-black text-white px-6 md:px-20  flex flex-col md:flex-row gap-10 py-10">
-      {/* Left Side */}
-      <motion.div
-        className="md:w-1/2 space-y-6"
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="flex gap-20 items-center">
-          <img
-            src={profileImage}
-            alt="Mohammad Amir Khan"
-            className="w-32 h-32 rounded-full border-4 border-yellow-500"
-          />
-          <div className="mt-4 space-y-4 text-gray-400">
-            <p>Name: Mohammad Amir Khan</p>
-            <p>Job Role: Software Developer</p>
-            <p>Experience: Fresher</p>
-            <p>Address: Bengaluru, India</p>
-          </div>
+    <section
+      id="about"
+      className="px-4 md:px-10 py-20 scroll-mt-24"
+      aria-label="About me"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-ink">About Me</h2>
+          <div className="h-1 w-24 mx-auto mt-4 rounded-full bg-accent" />
         </div>
 
-        {/* Skill Bars */}
-        <div>
-          <h2 className="font-semibold mb-2">Skills</h2>
-          {skills.map((skill) => (
-            <div key={skill.name} className="mb-4 text-gray-400">
-              <div className="flex justify-between">
-                <span>{skill.name}</span>
-                <span>{skill.level}%</span>
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Left: profile + skill bars */}
+          <motion.div
+            className="neu rounded-3xl p-8 space-y-8"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center gap-6">
+              <div className="neu-avatar p-2 rounded-full shrink-0">
+                <img
+                  src={profileImage}
+                  alt="Mohammad Amir Khan"
+                  className="w-24 h-24 object-cover rounded-full"
+                />
               </div>
-              <div className="h-2 bg-gray-800 rounded">
-                <div
-                  className="h-2 bg-yellow-500 rounded"
-                  style={{ width: `${skill.level}%` }}
-                ></div>
+              <div className="space-y-1 text-sm text-ink-soft">
+                <p>
+                  <span className="font-semibold text-ink">Name:</span> Mohammad
+                  Amir Khan
+                </p>
+                <p>
+                  <span className="font-semibold text-ink">Role:</span> Software
+                  Engineer · C++ / Qt
+                </p>
+                <p>
+                  <span className="font-semibold text-ink">Experience:</span> 1+
+                  year
+                </p>
+                <p>
+                  <span className="font-semibold text-ink">Location:</span>{" "}
+                  Bengaluru, India
+                </p>
               </div>
             </div>
-          ))}
-        </div>
-      </motion.div>
 
-      {/* Right Side */}
-      <motion.div
-        className="md:w-1/2 space-y-6"
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        <h2 className="text-4xl font-bold">About Me</h2>
-        <p className="text-gray-400">
-          I am Mohammad Amir Khan, a passionate Computer Science and
-          Engineering student with a flair for building web applications and
-          designing user interfaces. I enjoy solving complex problems and
-          turning ideas into reality through clean, efficient code.
-        </p>
+            <div>
+              <h3 className="font-bold text-ink mb-5 text-lg">Core Proficiencies</h3>
+              <div className="space-y-5">
+                {skills.map((skill) => (
+                  <div key={skill.name}>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="font-medium text-ink-soft">{skill.name}</span>
+                      <span className="font-semibold text-accent-deep">
+                        {skill.level}%
+                      </span>
+                    </div>
+                    <div className="neu-inset-sm h-2.5 rounded-full overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-accent"
+                        style={{ width: `${skill.level}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
 
-        {/* Summary Details */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm">
-          <p><strong className="text-gray-200">Profile:</strong><span className="text-gray-400"> Software Developer</span></p>
-          <p><strong className="text-gray-200">Domain:</strong><span className="text-gray-400"> Frontend Developer, Fullstack Developer</span></p>
-          <p><strong className="text-gray-200">Education:</strong><span className="text-gray-400"> Bachelor of Engineering</span></p>
-          <p><strong className="text-gray-200">Language:</strong><span className="text-gray-400"> English, Hindi </span></p>
-        </div>
+          {/* Right: summary */}
+          <motion.div
+            className="neu rounded-3xl p-8 space-y-6"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <h3 className="text-2xl font-bold text-ink">Professional Summary</h3>
+            <p className="text-ink-soft leading-relaxed">
+              I am a C++/Qt Software Engineer with 1+ year of experience building
+              two enterprise desktop products and system components across three
+              platforms: Windows, Linux and macOS. I work across Qt Widgets,
+              QML, C++11 through C++20, multithreading, WinAPI, TCP/IP socket
+              programming, REST APIs, JSON and SQLite.
+            </p>
+            <p className="text-ink-soft leading-relaxed">
+              I have delivered employee monitoring, Data Loss Prevention, remote
+              desktop and Host-Agent communication features, with a strong
+              grounding in data structures, operating systems, design patterns,
+              unit testing and embedded/firmware concepts.
+            </p>
 
-        {/* Footer Actions */}
-        <div className="flex items-center gap-4 mt-6">
-          <p className="text-yellow-500 font-bold text-lg">
-          </p>
-          <button onClick={FaHandPointLeft} className="bg-yellow-500 text-black px-5 py-2 rounded-full hover:bg-yellow-400">
-            LinkedIn
-          </button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 text-sm neu-inset-sm rounded-2xl p-5">
+              <p>
+                <span className="font-semibold text-ink">Profile:</span>{" "}
+                <span className="text-ink-soft">Software Engineer</span>
+              </p>
+              <p>
+                <span className="font-semibold text-ink">Domain:</span>{" "}
+                <span className="text-ink-soft">C++ / Qt, Desktop, Systems</span>
+              </p>
+              <p>
+                <span className="font-semibold text-ink">Education:</span>{" "}
+                <span className="text-ink-soft">B.E. Computer Science (CGPA 8.0)</span>
+              </p>
+              <p>
+                <span className="font-semibold text-ink">Languages:</span>{" "}
+                <span className="text-ink-soft">English, Hindi</span>
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="/Mohammad_Amir_Khan_Resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="neu-accent text-ink px-6 py-2.5 rounded-2xl font-semibold transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                Download Resume
+              </a>
+              <a
+                href="https://www.linkedin.com/in/mohammad-amir-khan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="neu-btn px-6 py-2.5 rounded-2xl font-semibold text-ink"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
