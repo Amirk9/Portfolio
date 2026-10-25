@@ -1,6 +1,5 @@
 import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-scroll";
-import profilePic from "../assets/1.jpg";
 
 const Hero = () => {
   return (
@@ -15,23 +14,23 @@ const Hero = () => {
           <div className="neu-inset-sm inline-flex items-center gap-2 rounded-full px-4 py-2">
             <span className="h-2 w-2 rounded-full bg-accent" />
             <span className="text-xs font-semibold tracking-widest uppercase text-ink-soft">
-              Available for opportunities
+              Open to GCC opportunities
             </span>
           </div>
 
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-ink">
             Hi, I'm{" "}
-            <span className="text-accent-deep">Mohammad Amir</span>{" "}
+            <span className="text-accent-deep">Mohammad Shafique</span>{" "}
             <span className="text-accent-deep">Khan</span>
           </h1>
 
           <p className="text-xl md:text-2xl font-bold text-ink-soft">
             <Typewriter
               words={[
-                "build desktop apps.",
-                "design systems.",
-                "write clean C++.",
-                "solve problems.",
+                "dispense medications.",
+                "manage pharmacy inventory.",
+                "ensure GMP compliance.",
+                "support patient care.",
               ]}
               loop
               cursor
@@ -43,15 +42,17 @@ const Hero = () => {
           </p>
 
           <p className="text-lg text-ink-soft max-w-xl">
-            <strong className="text-ink">Software Engineer · C++ / Qt Developer.</strong>{" "}
-            Over 1 year of experience shipping enterprise desktop products and
-            system components across Windows, Linux and macOS — from employee
-            monitoring and DLP to secure remote desktop control.
+            <strong className="text-ink">
+              Registered Pharmacist · B.Pharm.
+            </strong>{" "}
+            Over 3.5 years of experience across hospital pharmacy, pharmaceutical
+            production, quality control and pharmacy store operations — with a
+            strong focus on medication dispensing and regulatory compliance.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
             <a
-              href="/Mohammad_Amir_Khan_Resume.pdf"
+              href="/Mohammad_Shafique_Khan_Resume.docx"
               download
               target="_blank"
               rel="noopener noreferrer"
@@ -62,18 +63,18 @@ const Hero = () => {
             </a>
 
             <Link
-              to="projects"
+              to="experience"
               smooth={true}
               duration={500}
               className="neu-btn cursor-pointer px-7 py-3 rounded-2xl font-semibold text-ink inline-block text-center"
-              aria-label="Scroll to my work section"
+              aria-label="Scroll to my experience section"
             >
-              My Work
+              My Experience
             </Link>
           </div>
 
           <div className="flex flex-wrap gap-3 pt-4">
-            {["C++", "Qt / QML", "TCP/IP", "REST", "WinAPI"].map((tag) => (
+            {["B.Pharm", "Registered Pharmacist", "GMP", "Quality Control", "Hospital Pharmacy"].map((tag) => (
               <span key={tag} className="neu-chip px-4 py-1.5 rounded-xl text-sm text-ink-soft font-medium">
                 {tag}
               </span>
@@ -81,16 +82,14 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right: profile in a neumorphic frame */}
+        {/* Right: monogram in a neumorphic frame */}
         <div className="flex justify-center">
           <div className="neu-avatar p-4 sm:p-6 rounded-full">
-            <img
-              src={profilePic}
-              alt="Portrait of Mohammad Amir Khan"
-              className="w-56 h-56 sm:w-72 sm:h-72 object-cover rounded-full"
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-accent/15 flex items-center justify-center">
+              <span className="text-6xl sm:text-7xl font-extrabold tracking-tight text-accent-deep">
+                MSK
+              </span>
+            </div>
           </div>
         </div>
       </div>

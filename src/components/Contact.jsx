@@ -4,20 +4,13 @@ import {
   FaPhone,
   FaPaperPlane,
   FaFileDownload,
-  FaYoutube,
-  FaLinkedin,
-  FaTwitter,
-  FaFacebook,
-  FaInstagram,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Contact = () => {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
-  const [error, setError] = useState(null);
 
   const iconSize = 22;
 
@@ -25,24 +18,35 @@ const Contact = () => {
     {
       icon: <FaMapMarkerAlt size={iconSize} className="text-accent-deep" />,
       title: "ADDRESS",
-      value: "Bengaluru, India",
+      value: "Bhairahawa, Rupandehi, Nepal",
     },
     {
       icon: <FaPhone size={iconSize} className="text-accent-deep" />,
       title: "CONTACT NUMBER",
-      value: "+91-9019781278",
+      value: (
+        <a href="tel:+9779847425468" className="hover:text-accent-deep">
+          +977-9847425468
+        </a>
+      ),
     },
     {
       icon: <FaPaperPlane size={iconSize} className="text-accent-deep" />,
       title: "EMAIL ADDRESS",
-      value: "mdamirkhanj89@gmail.com",
+      value: (
+        <a
+          href="mailto:khannishant84@gmail.com"
+          className="hover:text-accent-deep break-all"
+        >
+          khannishant84@gmail.com
+        </a>
+      ),
     },
     {
       icon: <FaFileDownload size={iconSize} className="text-accent-deep" />,
       title: "DOWNLOAD RESUME",
       value: (
         <a
-          href="/Mohammad_Amir_Khan_Resume.pdf"
+          href="/Mohammad_Shafique_Khan_Resume.docx"
           target="_blank"
           rel="noopener noreferrer"
           download
@@ -54,67 +58,25 @@ const Contact = () => {
     },
   ];
 
-  const socialIcons = [
-    {
-      icon: <FaYoutube size={iconSize} />,
-      url: "https://youtube.com",
-      label: "YouTube",
-    },
-    {
-      icon: <FaLinkedin size={iconSize} />,
-      url: "https://www.linkedin.com/in/mohammad-amir-khan",
-      label: "LinkedIn",
-    },
-    {
-      icon: <FaTwitter size={iconSize} />,
-      url: "https://twitter.com",
-      label: "Twitter",
-    },
-    {
-      icon: <FaFacebook size={iconSize} />,
-      url: "https://facebook.com",
-      label: "Facebook",
-    },
-    {
-      icon: <FaInstagram size={iconSize} />,
-      url: "https://instagram.com",
-      label: "Instagram",
-    },
-  ];
-
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    setMessage(null);
-    setError(null);
 
-    try {
-      const response = await fetch("https://formspree.io/f/xjkwzklg", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(form),
-      });
+    const subject = encodeURIComponent(
+      `Portfolio enquiry from ${form.name}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+    );
 
-      if (response.ok) {
-        setMessage("Message sent successfully!");
-        setForm({ name: "", email: "", message: "" });
-        setShowForm(false);
-      } else {
-        setError("Something went wrong. Please try again later.");
-      }
-    } catch (err) {
-      console.error("Error sending message:", err);
-      setError("Failed to send message.");
-    } finally {
-      setLoading(false);
-    }
+    window.location.href = `mailto:khannishant84@gmail.com?subject=${subject}&body=${body}`;
+
+    setMessage("Your email app should open with the message ready to send.");
+    setForm({ name: "", email: "", message: "" });
+    setShowForm(false);
   };
 
   return (
@@ -134,7 +96,7 @@ const Contact = () => {
         <h2 className="text-4xl md:text-5xl font-extrabold text-ink">Contact Me</h2>
         <div className="h-1 w-24 mx-auto mt-4 rounded-full bg-accent" />
         <p className="text-ink-soft mt-5 max-w-xl mx-auto">
-          Have a role in mind, or want to talk about a project? The details below
+          Open to pharmacist roles in the Middle East (GCC). The details below
           are the fastest way to reach me.
         </p>
 
@@ -162,13 +124,16 @@ const Contact = () => {
             onClick={() => {
               setShowForm(!showForm);
               setMessage(null);
-              setError(null);
             }}
             className="neu-accent mt-6 px-8 py-3 rounded-2xl font-bold text-ink transition-transform duration-200 hover:-translate-y-0.5"
           >
             {showForm ? "Close Form" : "Click Here"}
           </button>
         </div>
+
+        {message && (
+          <p className="mt-6 text-sm font-semibold text-emerald-700">{message}</p>
+        )}
 
         {/* Form */}
         {showForm && (
@@ -192,7 +157,6 @@ const Contact = () => {
               placeholder="Your Name"
               required
               aria-required="true"
-              disabled={loading}
               className="neu-input rounded-2xl p-4 text-ink placeholder-ink-faint"
             />
 
@@ -208,7 +172,6 @@ const Contact = () => {
               placeholder="Your Email"
               required
               aria-required="true"
-              disabled={loading}
               className="neu-input rounded-2xl p-4 text-ink placeholder-ink-faint"
             />
 
@@ -224,41 +187,17 @@ const Contact = () => {
               placeholder="Your Message"
               required
               aria-required="true"
-              disabled={loading}
               className="neu-input rounded-2xl p-4 text-ink placeholder-ink-faint resize-none"
             />
 
-            {message && <p className="text-sm font-semibold text-emerald-700">{message}</p>}
-            {error && <p className="text-sm font-semibold text-red-700">{error}</p>}
-
             <button
               type="submit"
-              disabled={loading}
-              className="neu-accent text-ink font-bold py-3 rounded-2xl disabled:opacity-60 disabled:cursor-not-allowed"
+              className="neu-accent text-ink font-bold py-3 rounded-2xl"
             >
-              {loading ? "Sending..." : "Send Message"}
+              Send Message
             </button>
           </motion.form>
         )}
-
-        {/* Socials */}
-        <div className="mt-16">
-          <p className="mb-6 text-ink-soft font-medium">Find me on</p>
-          <div className="flex justify-center gap-5">
-            {socialIcons.map((item) => (
-              <a
-                key={item.label}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={item.label}
-                className="neu p-4 rounded-full text-ink-soft transition-transform duration-200 hover:-translate-y-1 hover:text-accent-deep"
-              >
-                {item.icon}
-              </a>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

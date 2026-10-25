@@ -2,16 +2,17 @@ import { motion } from "framer-motion";
 
 const education = [
   {
-    year: "2021 - 2025",
-    degree: "B.E. - Computer Science & Engineering",
-    institution: "Visvesvaraya Technological University",
-    grade: "CGPA: 8.0",
+    year: "August 2022",
+    degree: "Bachelor of Pharmacy (B.Pharm)",
+    institution:
+      "Rungta College of Pharmaceutical Sciences and Research (RCPSR), Bhilai, Chhattisgarh, India",
+    grade: "",
   },
   {
-    year: "2018 - 2020",
-    degree: "Higher Secondary School - Science (PUC)",
-    institution: "Nautanwa Inter College, Uttar Pradesh",
-    grade: "Percentage: 63%",
+    year: "10+2",
+    degree: "Higher Secondary Education - Science",
+    institution: "Bhairahawa Model School, Rupandehi, Nepal",
+    grade: "",
   },
 ];
 
@@ -42,17 +43,19 @@ const Education = () => {
                 {item.year}
               </span>
               <h3 className="text-xl font-bold text-ink mt-5 mb-2">{item.degree}</h3>
-              <p className="text-ink-soft uppercase tracking-wider text-sm mb-4">
+              <p className="text-ink-soft uppercase tracking-wider text-sm">
                 {item.institution}
               </p>
-              <p className="text-sm text-ink-faint">Grade: {item.grade}</p>
+              {item.grade && (
+                <p className="text-sm text-ink-faint mt-4">Grade: {item.grade}</p>
+              )}
             </motion.div>
           ))}
         </div>
 
         <div className="flex justify-center mt-12">
           <a
-            href="/Mohammad_Amir_Khan_Resume.pdf"
+            href="/Mohammad_Shafique_Khan_Resume.docx"
             download
             target="_blank"
             rel="noopener noreferrer"

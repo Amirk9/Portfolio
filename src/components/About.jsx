@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
-import profileImage from "../assets/1.jpg";
 
 const About = () => {
   const skills = [
-    { name: "C++ (11/14/17/20)", level: 90 },
-    { name: "Qt / QML", level: 88 },
-    { name: "TCP/IP & Sockets", level: 85 },
-    { name: "REST APIs & JSON", level: 85 },
-    { name: "JavaScript & React", level: 75 },
-    { name: "SQL & SQLite", level: 80 },
-    { name: "Java & Python", level: 72 },
-    { name: "WinAPI / Multithreading", level: 82 },
+    { name: "Medication Dispensing", level: 92 },
+    { name: "Prescription Review", level: 90 },
+    { name: "Pharmacy Inventory Management", level: 90 },
+    { name: "Pharmaceutical Production", level: 90 },
+    { name: "Quality Control (QC)", level: 88 },
+    { name: "GMP Compliance", level: 86 },
+    { name: "Emergency Preparedness", level: 84 },
+    { name: "Leadership & Management", level: 85 },
   ];
 
   return (
@@ -36,28 +35,28 @@ const About = () => {
           >
             <div className="flex items-center gap-6">
               <div className="neu-avatar p-2 rounded-full shrink-0">
-                <img
-                  src={profileImage}
-                  alt="Mohammad Amir Khan"
-                  className="w-24 h-24 object-cover rounded-full"
-                />
+                <div className="w-24 h-24 rounded-full bg-accent/15 flex items-center justify-center">
+                  <span className="text-2xl font-extrabold text-accent-deep">
+                    MSK
+                  </span>
+                </div>
               </div>
               <div className="space-y-1 text-sm text-ink-soft">
                 <p>
                   <span className="font-semibold text-ink">Name:</span> Mohammad
-                  Amir Khan
+                  Shafique Khan
                 </p>
                 <p>
-                  <span className="font-semibold text-ink">Role:</span> Software
-                  Engineer · C++ / Qt
+                  <span className="font-semibold text-ink">Role:</span> Registered
+                  Pharmacist · B.Pharm
                 </p>
                 <p>
-                  <span className="font-semibold text-ink">Experience:</span> 1+
-                  year
+                  <span className="font-semibold text-ink">Experience:</span> 3.5+
+                  years
                 </p>
                 <p>
                   <span className="font-semibold text-ink">Location:</span>{" "}
-                  Bengaluru, India
+                  Bhairahawa, Rupandehi, Nepal
                 </p>
               </div>
             </div>
@@ -95,41 +94,45 @@ const About = () => {
           >
             <h3 className="text-2xl font-bold text-ink">Professional Summary</h3>
             <p className="text-ink-soft leading-relaxed">
-              I am a C++/Qt Software Engineer with 1+ year of experience building
-              two enterprise desktop products and system components across three
-              platforms: Windows, Linux and macOS. I work across Qt Widgets,
-              QML, C++11 through C++20, multithreading, WinAPI, TCP/IP socket
-              programming, REST APIs, JSON and SQLite.
+              I am a Registered Pharmacist (Nepal Pharmacy Council, Reg. No.
+              G7547) with 3.5+ years of experience across hospital pharmacy,
+              pharmaceutical production, quality control and retail/store
+              operations.
             </p>
             <p className="text-ink-soft leading-relaxed">
-              I have delivered employee monitoring, Data Loss Prevention, remote
-              desktop and Host-Agent communication features, with a strong
-              grounding in data structures, operating systems, design patterns,
-              unit testing and embedded/firmware concepts.
+              I am skilled in medication dispensing, pharmacy inventory
+              management, production and QC processes, and emergency
+              preparedness. I am seeking a pharmacist role in the Middle East to
+              apply strong clinical, therapeutic and operational expertise in a
+              regulated healthcare or pharmaceutical manufacturing environment.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 text-sm neu-inset-sm rounded-2xl p-5">
               <p>
                 <span className="font-semibold text-ink">Profile:</span>{" "}
-                <span className="text-ink-soft">Software Engineer</span>
+                <span className="text-ink-soft">Registered Pharmacist</span>
               </p>
               <p>
                 <span className="font-semibold text-ink">Domain:</span>{" "}
-                <span className="text-ink-soft">C++ / Qt, Desktop, Systems</span>
+                <span className="text-ink-soft">
+                  Hospital Pharmacy, Production, QC
+                </span>
               </p>
               <p>
                 <span className="font-semibold text-ink">Education:</span>{" "}
-                <span className="text-ink-soft">B.E. Computer Science (CGPA 8.0)</span>
+                <span className="text-ink-soft">B.Pharm (Aug 2022)</span>
               </p>
               <p>
                 <span className="font-semibold text-ink">Languages:</span>{" "}
-                <span className="text-ink-soft">English, Hindi</span>
+                <span className="text-ink-soft">
+                  English, Hindi, Nepali, Bhojpuri, Urdu
+                </span>
               </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
-                href="/Mohammad_Amir_Khan_Resume.pdf"
+                href="/Mohammad_Shafique_Khan_Resume.docx"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
@@ -138,12 +141,10 @@ const About = () => {
                 Download Resume
               </a>
               <a
-                href="https://www.linkedin.com/in/mohammad-amir-khan"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:khannishant84@gmail.com"
                 className="neu-btn px-6 py-2.5 rounded-2xl font-semibold text-ink"
               >
-                LinkedIn
+                Email Me
               </a>
             </div>
           </motion.div>

@@ -1,6 +1,14 @@
 import { Link } from "react-scroll";
 
-const navLinks = ["home", "about", "skills", "experience", "projects", "contact"];
+const navLinks = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
+  { id: "education", label: "Education" },
+  { id: "projects", label: "Credentials" },
+  { id: "contact", label: "Contact" },
+];
 
 const Navbar = () => {
   return (
@@ -10,29 +18,29 @@ const Navbar = () => {
           href="#home"
           className="text-lg font-extrabold tracking-tight text-ink cursor-pointer"
         >
-          Amir<span className="text-accent-deep">.Khan</span>
+          Shafique<span className="text-accent-deep">.Khan</span>
         </a>
 
         <ul className="hidden md:flex items-center gap-2 text-sm font-medium">
           {navLinks.map((link) => (
-            <li key={link}>
+            <li key={link.id}>
               <Link
-                to={link}
+                to={link.id}
                 spy={true}
                 smooth={true}
                 duration={500}
                 offset={-90}
                 activeClass="neu-inset-sm text-accent-deep"
-                className="cursor-pointer capitalize px-4 py-2 rounded-xl text-ink-soft transition-all duration-300 hover:text-accent-deep"
+                className="cursor-pointer px-4 py-2 rounded-xl text-ink-soft transition-all duration-300 hover:text-accent-deep"
               >
-                {link}
+                {link.label}
               </Link>
             </li>
           ))}
         </ul>
 
         <a
-          href="/Mohammad_Amir_Khan_Resume.pdf"
+          href="/Mohammad_Shafique_Khan_Resume.docx"
           download
           target="_blank"
           rel="noopener noreferrer"

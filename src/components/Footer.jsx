@@ -4,10 +4,10 @@ const Footer = () => {
       <div className="neu max-w-6xl mx-auto rounded-3xl px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
         <p className="text-sm text-ink-soft">
           Copyright &copy; {new Date().getFullYear()} All rights reserved by{" "}
-          <span className="font-semibold text-ink">Amir Khan</span>
+          <span className="font-semibold text-ink">Mohammad Shafique Khan</span>
         </p>
         <p className="text-xs text-ink-faint tracking-wider uppercase">
-          Built with React · Vite · Tailwind CSS
+          Registered Pharmacist · B.Pharm
         </p>
       </div>
     </footer>
