@@ -39,7 +39,7 @@ const About = () => {
                 <img
                   src={profileImage}
                   alt="Mohammad Shafique Khan"
-                  className="w-24 h-24 object-cover rounded-full"
+                  className="w-24 h-24 object-cover object-top rounded-full"
                   loading="lazy"
                   decoding="async"
                 />

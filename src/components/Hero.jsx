@@ -89,7 +89,7 @@ const Hero = () => {
             <img
               src={profilePic}
               alt="Portrait of Mohammad Shafique Khan"
-              className="w-56 h-56 sm:w-72 sm:h-72 object-cover rounded-full"
+              className="w-56 h-56 sm:w-72 sm:h-72 object-cover object-top rounded-full"
               loading="lazy"
               decoding="async"
             />
