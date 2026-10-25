@@ -1,5 +1,6 @@
 import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-scroll";
+import profilePic from "../assets/shafique.jpg";
 
 const Hero = () => {
   return (
@@ -82,14 +83,16 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right: monogram in a neumorphic frame */}
+        {/* Right: profile photo in a neumorphic frame */}
         <div className="flex justify-center">
           <div className="neu-avatar p-4 sm:p-6 rounded-full">
-            <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-accent/15 flex items-center justify-center">
-              <span className="text-6xl sm:text-7xl font-extrabold tracking-tight text-accent-deep">
-                MSK
-              </span>
-            </div>
+            <img
+              src={profilePic}
+              alt="Portrait of Mohammad Shafique Khan"
+              className="w-56 h-56 sm:w-72 sm:h-72 object-cover rounded-full"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       </div>

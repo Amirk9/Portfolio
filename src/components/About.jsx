@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import profileImage from "../assets/shafique.jpg";
 
 const About = () => {
   const skills = [
@@ -35,11 +36,13 @@ const About = () => {
           >
             <div className="flex items-center gap-6">
               <div className="neu-avatar p-2 rounded-full shrink-0">
-                <div className="w-24 h-24 rounded-full bg-accent/15 flex items-center justify-center">
-                  <span className="text-2xl font-extrabold text-accent-deep">
-                    MSK
-                  </span>
-                </div>
+                <img
+                  src={profileImage}
+                  alt="Mohammad Shafique Khan"
+                  className="w-24 h-24 object-cover rounded-full"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="space-y-1 text-sm text-ink-soft">
                 <p>
@@ -100,11 +103,17 @@ const About = () => {
               operations.
             </p>
             <p className="text-ink-soft leading-relaxed">
-              I am skilled in medication dispensing, pharmacy inventory
-              management, production and QC processes, and emergency
-              preparedness. I am seeking a pharmacist role in the Middle East to
-              apply strong clinical, therapeutic and operational expertise in a
-              regulated healthcare or pharmaceutical manufacturing environment.
+              I am skilled in medication dispensing, prescription review,
+              pharmacy inventory management, production and quality control
+              processes, emergency preparedness and GMP compliance. My
+              experience spans both healthcare and manufacturing settings,
+              giving me a practical understanding of clinical operations, batch
+              documentation and regulatory standards.
+            </p>
+            <p className="text-ink-soft leading-relaxed">
+              I am a fast learner who works well under pressure, collaborates
+              closely with clinical and production teams, and takes ownership of
+              accuracy, documentation and patient safety.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 text-sm neu-inset-sm rounded-2xl p-5">
